@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <button type="button" onclick="addPharmacistList()">ADD Pharmacist</button>
+
+    <h1>Show List Pharmacist</h1>
+    <p id="result"></p>
+</div>
+<script src="pharmacist.js"></script>
+<script src="PharmacistManager.js"></script>
+<script>
+    let QuynhAnh = new Pharmacist(10, "QuynhAnh", 20, "HaNoi");
+    let Thao = new Pharmacist(12, 'Thao', 22, 'HaiPhong');
+    let VietNam = new PharmacistManager(10, 'QuynhAnh');
+
+    VietNam.addPharmacist(12, 'Thao');
+    VietNam.addPharmacist(14, 'Duyen');
+    let nameArr = VietNam.getNameManager();
+    let idArr = VietNam.getIDManager();
+
+    function addPharmacistList() {
+        for (let i = 0; i < idArr.length; i++) {
+            document.getElementById('result').innerHTML += idArr[i] + ' ';
+            document.getElementById('result').innerHTML += nameArr[i] + '<br>';
+        }
+    }
+</script>
+</body>
+</html>
